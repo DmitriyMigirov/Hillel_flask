@@ -5,11 +5,6 @@ from typing import List
 
 
 def execute_query(query_sql: str) -> List:
-    '''
-    Функция для выполнения запроса
-    :param query_sql: запрос
-    :return: результат выполнения запроса
-    '''
     db_pass = os.path.join(os.getcwd(), 'chinook.db')
     connection = sqlite3.connect(db_pass)
     cur = connection.cursor()
@@ -29,12 +24,6 @@ def unwrapper(records: List) -> None:
 
 
 def get_filtered_customers(city, state) -> List:
-    '''
-    Возвращает клиентов, отфильтрованных по городу и штату
-    :param city: город проживания, строка
-    :param state: штат проживания, строка
-    :return: список клиентов
-    '''
     query_sql = '''
         SELECT *
             FROM customers
